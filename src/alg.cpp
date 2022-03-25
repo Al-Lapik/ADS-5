@@ -66,8 +66,8 @@ std::string infx2pstfx(std::string inf) {
 
 int eval(std::string pref) {
   int operand = 0;
-  for (int i = 0; i < post.size(); i++) {
-    int current = convert(post[i]);
+  for (int i = 0; i < pref.size(); i++) {
+    int current = convert(pref[i]);
     if (current > -1) {
       operand = operand * 10 + current;
     } else {
@@ -75,7 +75,7 @@ int eval(std::string pref) {
         stack2.push(operand);
         operand = 0;
       }
-      switch (post[i]) {
+      switch (pref[i]) {
         case '+':
           {
             int oper2 = stack2.get();
