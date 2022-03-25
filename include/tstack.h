@@ -2,19 +2,20 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
-template<typename T, int size>
+template<typename T, const int k_size = 100>
 class TStack {
-private:
-  T arr[size];
+ private:
+  T arr[k_size];
   int top;
-public:
+ 
+ public:
   TStack() : top(-1) {}
   bool isEmpty() {
     return top == -1;
   }
 
   bool isFull() {
-    return top == size - 1;
+    return top == k_size - 1;
   }
 
   T get() {
